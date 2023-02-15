@@ -1,43 +1,39 @@
 {
-  "name": "@mapbox/s3urls",
-  "version": "2.0.0",
-  "description": "Create S3 urls from bucket/key or extract bucket/key from them",
-  "main": "index.js",
-  "engines": {
-    "node": ">= 6.10.3"
-  },
-  "bin": {
-    "s3urls": "bin/s3urls.js"
-  },
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "lint": "eslint *.js test/*.js",
-    "test": "tape test/*.test.js && eslint *.js test/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mapbox/s3urls.git"
-  },
-  "author": "Mapbox",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mapbox/s3urls/issues"
-  },
-  "homepage": "https://github.com/mapbox/s3urls",
-  "eslintConfig": {
-    "extends": "@mapbox/eslint-config-mapbox"
-  },
-  "devDependencies": {
-    "cross-exec-file": "^1.0.0",
-    "eslint": "^4.17.0",
-    "eslint-plugin-node": "^5.2.1",
-    "tape": "^5.0.1"
-  },
-  "dependencies": {
-    "@mapbox/eslint-config-mapbox": "^1.0.0",
-    "@mapbox/s3signed": "^0.1.1",
-    "minimist": "^1.1.0"
-  }
+    "name": "@openaddresses/s3urls",
+    "version": "2.0.0",
+    "description": "Create S3 urls from bucket/key or extract bucket/key from them",
+    "main": "index.js",
+    "engines": {
+        "node": ">= 6.10.3"
+    },
+    "bin": {
+        "s3urls": "bin/s3urls.js"
+    },
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "lint": "eslint *.js test/*.js",
+        "test": "tape test/*.test.js && eslint *.js test/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/openaddresses/s3urls.git"
+    },
+    "author": "Mapbox",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/openaddresses/s3urls/issues"
+    },
+    "homepage": "https://github.com/openaddresses/s3urls",
+    "devDependencies": {
+        "cross-exec-file": "^2.0.0",
+        "eslint": "^8.17.0",
+        "eslint-plugin-node": "^11.0.0",
+        "tape": "^5.0.1"
+    },
+    "dependencies": {
+        "@mapbox/s3signed": "^0.1.1",
+        "minimist": "^1.1.0"
+    }
 }
