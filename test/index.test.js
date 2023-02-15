@@ -1,7 +1,5 @@
-
-
-const test = require('tape').test;
-const s3Urls = require('..');
+import test from 'tape';
+import s3Urls from '../index.js';
 
 test('toUrl', (t) => {
     const result = s3Urls.toUrl('bucket', 'key');

@@ -1,10 +1,8 @@
+import s3signed from '@mapbox/s3signed';
 
-
-const parse = require('url').parse;
-
-const s3urls = module.exports = {
-    fromUrl: function(url) {
-        const uri = parse(url);
+export default class S3URLs {
+    static fromUrl(url) {
+        const uri = new URL(url);
         uri.pathname = decodeURIComponent(uri.pathname || '');
 
         const style = (function(uri) {
@@ -36,25 +34,25 @@ const s3urls = module.exports = {
             Bucket: bucket,
             Key: key
         };
-    },
+    }
 
-    toUrl: function(bucket, key) {
+    static toUrl(bucket, key) {
         return {
             's3': ['s3:/', bucket, key].join('/'),
             'bucket-in-path': ['https://s3.amazonaws.com', bucket, key].join('/'),
             'bucket-in-host': ['https:/', bucket + '.s3.amazonaws.com', key].join('/')
         };
-    },
+    }
 
-    convert: function(url, to) {
-        const params = s3urls.fromUrl(url);
-        return s3urls.toUrl(params.Bucket, params.Key)[to];
-    },
+    static convert(url, to) {
+        const params = this.fromUrl(url);
+        return decodeURIComponent(this.toUrl(params.Bucket, params.Key)[to]);
+    }
 
-    signed: require('@mapbox/s3signed'),
+    static signed = s3signed;
 
-    valid: function(url) {
-        const params = s3urls.fromUrl(url);
+    static valid(url) {
+        const params = this.fromUrl(url);
         return params.Bucket && params.Key;
     }
-};
+}

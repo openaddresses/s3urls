@@ -1,5 +1,6 @@
 {
     "name": "@openaddresses/s3urls",
+    "type": "module",
     "version": "2.0.0",
     "description": "Create S3 urls from bucket/key or extract bucket/key from them",
     "main": "index.js",
@@ -14,13 +15,13 @@
     },
     "scripts": {
         "lint": "eslint *.js test/*.js",
-        "test": "tape test/*.test.js && eslint *.js test/*.js"
+        "test": "tape test/*.test.js && eslint *.js test/*.js bin/*.js"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/openaddresses/s3urls.git"
     },
-    "author": "Mapbox",
+    "author": "Nick Ingalls <nick@ingalls.ca>",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/openaddresses/s3urls/issues"
