@@ -62,7 +62,7 @@ if (command === 'signed') {
         s3urls.toUrl(argv._[1], argv._[2]).s3 :
         s3urls.convert(argv._[1], 's3');
 
-    s3urls.signed(url, argv.expire || 600, function(err, signedUrl) {
+    s3urls.signed(url, argv.expire || 600, (err, signedUrl) => {
         if (err) console.error(err);
         console.log(signedUrl);
     });
