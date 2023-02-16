@@ -10,6 +10,10 @@
 
 ## Version History
 
+### v3.3.1
+
+- :arrow_up: Remove node-eslint
+
 ### v3.3.0
 
 - :tada: Migrate to typescript
