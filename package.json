@@ -8,15 +8,13 @@
     "engines": {
         "node": ">= 6.10.3"
     },
-    "bin": {
-        "s3urls": "bin/s3urls.js"
-    },
     "directories": {
         "test": "test"
     },
     "scripts": {
-        "lint": "eslint *.js test/*.js",
-        "test": "tape test/*.test.js && eslint *.js test/*.js bin/*.js"
+        "lint": "eslint *.ts test/*.ts",
+        "build": "tsc --build",
+        "test": "ts-node test/index.test.ts"
     },
     "repository": {
         "type": "git",

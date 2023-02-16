@@ -1,13 +1,13 @@
 export interface S3Params {
     Bucket: string | undefined;
     Key: string | undefined;
-};
+}
 
 export interface S3Permutations {
     S3: string;
     BucketInPath: string;
     BucketInHost: string;
-};
+}
 
 export default class S3URLs {
     static fromUrl(url: string): S3Params {
