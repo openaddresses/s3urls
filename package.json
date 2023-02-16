@@ -1,7 +1,7 @@
 {
     "name": "@openaddresses/s3urls",
     "type": "module",
-    "version": "3.2.0",
+    "version": "3.3.0",
     "description": "Create S3 urls from bucket/key or extract bucket/key from them",
     "main": "dist/index.js",
     "types": "index.ts",
@@ -27,14 +27,14 @@
     },
     "homepage": "https://github.com/openaddresses/s3urls",
     "devDependencies": {
+        "@types/node": "^18.13.0",
+        "@types/tape": "^4.13.2",
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "@typescript-eslint/parser": "^5.52.0",
         "eslint": "^8.17.0",
         "eslint-plugin-node": "^11.0.0",
         "tape": "^5.0.1",
         "ts-node": "^10.9.1",
-        "typescript": "^4.9.5",
-        "@types/node": "^18.13.0",
-        "@types/tape": "^4.13.2",
-        "@typescript-eslint/eslint-plugin": "^5.52.0",
-        "@typescript-eslint/parser": "^5.52.0"
+        "typescript": "^4.9.5"
     }
 }
