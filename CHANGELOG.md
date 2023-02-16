@@ -10,6 +10,10 @@
 
 ## Version History
 
+### v3.3.0
+
+- :tada: Migrate to typescript
+
 ### v3.2.0
 
 - :rocket: Rewrite in modern ES
