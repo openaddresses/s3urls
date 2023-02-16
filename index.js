@@ -1,5 +1,3 @@
-import s3signed from '@mapbox/s3signed';
-
 export default class S3URLs {
     static fromUrl(url) {
         const uri = new URL(url);
@@ -49,8 +47,6 @@ export default class S3URLs {
         const params = this.fromUrl(url);
         return decodeURIComponent(this.toUrl(params.Bucket, params.Key)[to]);
     }
-
-    static signed = s3signed;
 
     static valid(url) {
         const params = this.fromUrl(url);
