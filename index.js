@@ -7,8 +7,8 @@ export default class S3URLs {
 
         const style = (function(uri) {
             if (uri.protocol === 's3:') return 's3';
-            if (/^s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-path';
-            if (/\.s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
+            if (/^s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-path';
+            if (/\.s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'bucket-in-host';
         })(uri);
 
         let bucket, key;
@@ -16,12 +16,13 @@ export default class S3URLs {
             bucket = uri.hostname;
             key = uri.pathname.slice(1);
         }
+
         if (style === 'bucket-in-path') {
             bucket = uri.pathname.split('/')[1];
             key = uri.pathname.split('/').slice(2).join('/');
         }
         if (style === 'bucket-in-host') {
-            const match = uri.hostname.replace(/\.s3[.-](\w{2}-\w{4,9}-\d\.)?amazonaws\.com(\.cn)?/, '');
+            const match = uri.hostname.replace(/\.s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com(\.cn)?/, '');
             if (match.length) {
                 bucket = match;
             } else {

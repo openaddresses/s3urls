@@ -114,6 +114,20 @@ test('fromUrl: bucket-in-host style in cn-north-1', (t) => {
     t.end();
 });
 
+test('fromUrl: bucket-in-host style in us-gov-east', (t) => {
+    const result = s3Urls.fromUrl('https://s3-us-gov-east-1.amazonaws.com/test-bucket/the/whole/key');
+    t.equal(result.Bucket, 'test-bucket', 'expected bucket');
+    t.equal(result.Key, 'the/whole/key', 'expected key');
+    t.end();
+});
+
+test('fromUrl: bucket-in-host style in us-gov-east', (t) => {
+    const result = s3Urls.fromUrl('https://bucket.s3.us-gov-east-1.amazonaws.com/the/whole/key');
+    t.equal(result.Bucket, 'bucket', 'expected bucket');
+    t.equal(result.Key, 'the/whole/key', 'expected key');
+    t.end();
+});
+
 test('fromUrl: bucket-in-host style in ap-southeast-1', (t) => {
     const result = s3Urls.fromUrl('https://bucket.s3.ap-southeast-1.amazonaws.com/the/whole/key');
     t.equal(result.Bucket, 'bucket', 'expected bucket');
