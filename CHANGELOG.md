@@ -10,6 +10,10 @@
 
 ## Version History
 
+### v4.1.1
+
+- :bug: Add `tsx` as a dev dep
+
 ### v4.1.0
 
 - :rocket: Support new unified S3 REST API
