@@ -149,6 +149,20 @@ test('fromUrl: BucketInHost dashed in ap-southeast-1', (t) => {
     t.end();
 });
 
+test('fromUrl: BucketInHost in us-east-1', (t) => {
+    const result = s3Urls.fromUrl('https://frontend-infra-wftak-staging-1234-us-east-1.s3.us-east-1.amazonaws.com/line-400.jpg');
+    t.equal(result.Bucket, 'frontend-infra-wftak-staging-1234-us-east-1', 'expected bucket');
+    t.equal(result.Key, 'line-400.jpg', 'expected key');
+    t.end();
+});
+
+test('fromUrl: BucketInHost in us-east-1 dualstack', (t) => {
+    const result = s3Urls.fromUrl('https://frontend-infra-wftak-staging-1234-us-east-1.s3.dualstack.us-east-1.amazonaws.com/line-400.jpg');
+    t.equal(result.Bucket, 'frontend-infra-wftak-staging-1234-us-east-1', 'expected bucket');
+    t.equal(result.Key, 'line-400.jpg', 'expected key');
+    t.end();
+});
+
 test('valid', (t) => {
     t.notOk(s3Urls.valid('http://www.google.com'), 'not on s3');
     t.ok(s3Urls.valid('https://s3.amazonaws.com/bucket/the/whole/key'), 'bucket in path');

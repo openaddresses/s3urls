@@ -10,6 +10,10 @@
 
 ## Version History
 
+### v4.1.0
+
+- :rocket: Support new unified S3 REST API
+
 ### v4.0.1
 
 - :bug: Include Dist Dir
