@@ -9,31 +9,42 @@ export interface S3Permutations {
     BucketInHost: string;
 }
 
+export enum S3Style {
+    S3 = 'S3',
+    BucketInPath = 'BucketInPath',
+    BucketInHost = 'BucketInHost',
+}
+
 export default class S3URLs {
     static fromUrl(url: string): S3Params {
         const uri = new URL(url);
         uri.pathname = decodeURIComponent(uri.pathname || '');
 
         const style = (function(uri) {
-            if (uri.protocol === 's3:') return 'S3';
-            if (/^s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'BucketInPath';
-            if (/\.s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) return 'BucketInHost';
+            if (uri.protocol === 's3:') {
+                return S3Style.S3;
+            } else if (/^s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) {
+                return S3Style.BucketInPath;
+            } else if (/\.s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com/.test(uri.hostname)) {
+                return S3Style.BucketInHost;
+            }
         })(uri);
 
         let bucket, key;
-        if (style === 'S3') {
+        if (style === S3Style.S3) {
             bucket = uri.hostname;
             key = uri.pathname.slice(1);
-        } else if (style === 'BucketInPath') {
+        } else if (style === S3Style.BucketInPath) {
             bucket = uri.pathname.split('/')[1];
             key = uri.pathname.split('/').slice(2).join('/');
-        } else if (style === 'BucketInHost') {
+        } else if (style === S3Style.BucketInHost) {
             const match = uri.hostname.replace(/\.s3[.-](\w{2}-(gov-)?\w{4,9}-\d\.)?amazonaws\.com(\.cn)?/, '');
             if (match.length) {
                 bucket = match;
             } else {
                 bucket =  uri.hostname.split('.')[0];
             }
+
             key = uri.pathname.slice(1);
         }
 

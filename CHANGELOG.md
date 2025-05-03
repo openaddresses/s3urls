@@ -10,6 +10,11 @@
 
 ## Version History
 
+### v4.0.0
+
+- :arrow_up: Update all deps
+- :tada: Require a min of NodeJS 22
+
 ### v3.3.1
 
 - :arrow_up: Remove node-eslint
