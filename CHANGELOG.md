@@ -10,6 +10,10 @@
 
 ## Version History
 
+### v4.0.1
+
+- :bug: Include Dist Dir
+
 ### v4.0.0
 
 - :arrow_up: Update all deps
